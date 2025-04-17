@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('Images/historiakuva.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0; /* Tämä poistaa valkoisen raidan */
+    padding: 0;
+}
+
+.quiz-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #5c4033; /* Tummanruskea reuna */
+    border-radius: 10px;
+    background: rgba(245, 222, 179, 0.9); /* Vaalea ruskea tausta, hieman läpinäkyvä */
+    position: relative;
+    color: #3e2f1c; /* Tummanruskea teksti */
+}
+
+#question-container {
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #8b5e3c; /* Ruskea */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6f4425;
+}

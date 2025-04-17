@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historian aikamatka</title>
+    <link rel="stylesheet" href="Style/Style.css">
+    <script defer>
+        const events = {
+            "Saksan hyökkäys Puolaan": { year: 1939, image: "images/Puola.bob.jpg" },
+            "Pearl Harborin hyökkäys": { year: 1941, image: "images/pearl.bob.jpg" },
+            "Normandian maihinnousu": { year: 1944, image: "images/maihinnousu.jpg" },
+            "Hiroshiman atomipommi": { year: 1945, image: "images/hiroshima.jpg" },
+            "Saksan antautuminen": { year: 1945, image: "images/saksan_antautuminen.jpg" },
+            "Barbarossa-suunnitelma": { year: 1941, image: "images/barbarossa.jpg" }
+        };
+
+        let eventKeys = Object.keys(events);
+        let score = 0;
+        let questionCount = 0;
+        let maxQuestions = 5;
+        let currentEvent = "";
+        let currentYear = 0;
+
+        function updateScore() {
+            document.getElementById("score").innerText = "Pisteet: " + score;
+        }
+
+        function nextQuestion() {
+            if (questionCount < maxQuestions) {
+                let randomIndex = Math.floor(Math.random() * eventKeys.length);
+                currentEvent = eventKeys[randomIndex];
+                currentYear = events[currentEvent].year;
+                let currentImage = events[currentEvent].image;
+                document.getElementById("event").innerText = "Milloin tapahtui: " + currentEvent + "?";
+                document.getElementById("eventImage").src = currentImage;
+                document.getElementById("year").value = "";
+                document.getElementById("result").innerText = "";
+                document.getElementById("next").disabled = true;
+                questionCount++;
+            } else {
+                document.getElementById("event").innerText = "Peli päättyi! Pisteet: " + score + "/" + maxQuestions;
+                document.getElementById("year").style.display = "none";
+                document.getElementById("next").style.display = "none";
+            }
+        }
+
+        function checkAnswer() {
+            let userAnswer = parseInt(document.getElementById("year").value);
+            let resultText = "";
+            if (userAnswer === currentYear) {
+                resultText = "Oikein!";
+                score++;
+            } else {
+                resultText = "Väärin! Oikea vastaus: " + currentYear;
+            }
+            document.getElementById("result").innerText = resultText;
+            document.getElementById("next").disabled = false;
+            updateScore();
+        }
+
+        function startGame() {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("game").style.display = "block";
+            nextQuestion();
+        }
+
+        window.onload = function() {
+            document.getElementById("startButton").onclick = startGame;
+        };
+    </script>
+</head>
+<body>
+    <div id="intro">
+        <h1>Historian aikamatka</h1>
+        <p>Tervetuloa pelaamaan! Tässä pelissä testaat tietämystäsi toisen maailmansodan tärkeistä tapahtumista. Tarkoituksena on arvata, milloin tunnetut historialliset tapahtumat tapahtuivat.</p>
+        <p>Vastaa syöttämällä oikea vuosiluku, ja saat pisteitä oikein vastatuista tapahtumista!</p>
+        <button id="startButton">Aloita peli</button>
+    </div>
+
+    <div id="game" style="display:none;">
+        <div class="overlay"></div>
+        <a href="index.html" class="back-link">← Takaisin peleihin</a>
+        <h1>Historian aikamatka</h1>
+        <div class="container">
+            <img id="eventImage" src="" alt="Tapahtuman kuva" style="max-width: 100%; max-height: 400px; border-radius: 10px; margin-bottom: 20px;">
+            <p id="event">Milloin tapahtui: ?</p>
+            <input type="number" id="year" placeholder="Syötä vuosiluku">
+            <button onclick="checkAnswer()">Vastaa</button>
+            <p id="result"></p>
+            <button onclick="nextQuestion()" id="next" disabled>Seuraava</button>
+            <p id="score">Pisteet: 0</p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">© 2025 RR_Ryhmä 10 | All rights reserved | 
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a> | 
+            <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+        </p>
+    </footer>
+</body>
+</html>

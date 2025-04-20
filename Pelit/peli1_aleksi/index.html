@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html lang="fi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Historian tunnistuspeli</title>
-        <link rel="stylesheet" href="../peli1_aleksi/css/kentatjapainikkeet.css">
-        <link rel="stylesheet" href="../peli1_aleksi/css/kuvatyylit.css">
-        <link rel="stylesheet" href="../peli1_aleksi/css/perustyylit.css">
-        <script src="../peli1_aleksi/js/code.js" defer></script>
-    </head>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historian tunnistuspeli</title>
+    <link rel="stylesheet" href="../peli1_aleksi/css/kentatjapainikkeet.css">
+    <link rel="stylesheet" href="../peli1_aleksi/css/kuvatyylit.css">
+    <link rel="stylesheet" href="../peli1_aleksi/css/perustyylit.css">
+    <script src="../peli1_aleksi/js/code.js" defer></script>
+</head>
+
 <body>
     <div class="wrapper">
 
-       <header>
-        <div id="ylapalkki">
-            <h1>HISTORIAN AIKAMATKA</h1>
-            <div class="nav-container">
-                <ul>
-                    <li><a href="ohjeet.html">Ohjeet</a></li>
-                    <li><a href="index.html">Etusivu</a></li>
-                    <li><a href="pisteet.html">Pisteet</a></li>
-                    <li><a href="pelit.html">Pelit</a></li>
-                </ul>
+        <header>
+            <div id="ylapalkki">
+                <h1>HISTORIAN AIKAMATKA</h1>
+                <div class="nav-container">
+                    <ul>
+                        <li><a href="ohjeet.html">Ohjeet</a></li>
+                        <li><a href="index.html">Etusivu</a></li>
+                        <li><a href="pisteet.html">Pisteet</a></li>
+                        <li><a href="pelit.html">Pelit</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-</header>
+        </header>
 
-    <main>
-        <section id="etusivu">
-            <img id ="kirjakuva" src="../peli1_aleksi/images/aloituskuva.png" alt="Historiallinen kartta" class="aloitus-kuva">
-            <h2>Tervetuloa historian tunnistuspeliin!</h2>
-            <p>Sinun tehtävänäsi on tunnistaa historiallinen henkilö kuvan ja annetun vihjeen perusteella.</p>
-            <button id="aloita">Aloita peli</button>
-        </section>
+        <main>
+            <section id="etusivu">
+                <img id="kirjakuva" src="../peli1_aleksi/images/aloituskuva.png" alt="Historiallinen kartta" class="aloitus-kuva">
+                <h2>Tervetuloa historian tunnistuspeliin!</h2>
+                <p>Sinun tehtävänäsi on tunnistaa historiallinen henkilö kuvan ja annetun vihjeen perusteella.</p>
+                <button id="aloita">Aloita peli</button>
+            </section>
 
-        <section id="peli-alue" style="display: none;">
-            <h3 id="kysymysteksti"></h3>
-            <img id="henkiloKuva" src="" alt="Historiallinen henkilö">
-            <div id="vaihtoehdot"></div>
-            <button id="seuraava" style="display: none;">Seuraava kysymys</button>
-        </section>
+            <section id="peli-alue" style="display: none;">
+                <h3 id="kysymysteksti"></h3>
+                <img id="henkiloKuva" src="" alt="Historiallinen henkilö">
+                <div id="vaihtoehdot"></div>
+                <button id="seuraava" style="display: none;">Seuraava kysymys</button>
+            </section>
 
-        <section id="tulokset">
-            <div id="tausta-sumu"></div>
+            <section id="tulokset">
+                <div id="tausta-sumu"></div>
+                <div class="popup">
+                    <h2>Peli päättyi!</h2>
+                    <p id="pisteet"></p>
+                    <button id="uudestaan" class="yrita-uudelleen">Yritä uudelleen</button>
+                </div>
+            </section>
+        </main>
 
-            <div class="popup">
-                <h2>Peli päättyi!</h2>
-                <p id="pisteet"></p>
-                <button id="uudestaan" class="yrita-uudelleen">Yritä uudelleen</button>
+        <footer>
+            <p>&copy; 2025 Historia Peli | Tekijät: Web Projekti ryhmä 10</p>
+        </footer>
 
-            </div>
-        </section>
-        
-    </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Historia Peli | Tekijät: Web Projekti ryhmä 10</p>
-    </footer>
-</div>
+    <!-- Pelin logiikka -->
+    <script src="js/java.js"></script>
+
+    <!-- Pisteiden tallennus -->
+    <script src="../pisteiden_keräys/pelin1_localstore/tallenus.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// Tallennetaan localStorageen avaimella peli3_arttuH_pisteet
+// Tallennetaan localStorageen avaimella peli1_aleksi_pisteet
 localStorage.setItem("peli1_aleksi_pisteet", 10);
 
 // (Valinnainen) Konsoli-ilmoitus

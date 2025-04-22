@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verkkopeli - Historia</title>
-    <link rel="stylesheet" href="Peli 1/Aleksi/style.css">
-
+    <title>Historian tunnistuspeli</title>
+    <link rel="stylesheet" href="../peli1_aleksi/css/kentatjapainikkeet.css">
+    <link rel="stylesheet" href="../peli1_aleksi/css/kuvatyylit.css">
+    <link rel="stylesheet" href="../peli1_aleksi/css/perustyylit.css">
+    <script src="../peli1_aleksi/js/code.js" defer></script>
 </head>
+
 <body>
+    <div class="wrapper">
 
-    <header>
-        <h1>Historia Peli</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Etusivu</a></li>
-                <li><a href="#">Pelit</a></li>
-                <li><a href="#">Ohjeet</a></li>
-                <li><a href="#">Tietoa</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <div id="ylapalkki">
+                <h1>HISTORIAN AIKAMATKA</h1>
+                <div class="nav-container">
+                    <ul>
+                        <li><a href="ohjeet.html">Ohjeet</a></li>
+                        <li><a href="index.html">Etusivu</a></li>
+                        <li><a href="pisteet.html">Pisteet</a></li>
+                        <li><a href="pelit.html">Pelit</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
 
-    <main>
-        <section id="etusivu">
-            <h2>Tervetuloa historian maailmaan!</h2>
-            <p>Opi hauskan pelin avulla. Valitse peli ja aloita oppiminen.</p>
-            <button id="aloita">Aloita peli</button>
-        </section>
+        <main>
+            <section id="etusivu">
+                <img id="kirjakuva" src="../peli1_aleksi/images/aloituskuva.png" alt="Historiallinen kartta" class="aloitus-kuva">
+                <h2>Tervetuloa historian tunnistuspeliin!</h2>
+                <p>Sinun tehtävänäsi on tunnistaa historiallinen henkilö kuvan ja annetun vihjeen perusteella.</p>
+                <button id="aloita">Aloita peli</button>
+            </section>
 
-        <section id="peli-alue">
-            <h3>Pelialue</h3>
-            <p>Pisteet: <span id="pisteet">0</span></p>
-            <button id="tehtava1" class="pelipainike">Peli 1: Kysymys 1</button>
-            <button id="tehtava2" class="pelipainike">Peli 2: Kysymys 2</button>
-            <button id="tehtava3" class="pelipainike">Peli 3: Kysymys 3</button>
-        </section>
+            <section id="peli-alue" style="display: none;">
+                <h3 id="kysymysteksti"></h3>
+                <img id="henkiloKuva" src="" alt="Historiallinen henkilö">
+                <div id="vaihtoehdot"></div>
+                <button id="seuraava" style="display: none;">Seuraava kysymys</button>
+            </section>
 
-        <section id="koostesivu">
-            <h3>Kooste</h3>
-            <p>Suorituksesi:</p>
-            <p>Taso: 1</p>
-            <p>Saavutukset: 0/5</p>
-        </section>
-    </main>
+            <section id="tulokset">
+                <div id="tausta-sumu"></div>
+                <div class="popup">
+                    <h2>Peli päättyi!</h2>
+                    <p id="pisteet"></p>
+                    <button id="uudestaan" class="yrita-uudelleen">Yritä uudelleen</button>
+                </div>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2025 Historia Peli | Tekijät: Web Projekti ryhmä 10</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 Historia Peli | Tekijät: Web Projekti ryhmä 10</p>
+        </footer>
 
-    <script src="script.js"></script>
+    </div>
 
+    <!-- Pelin logiikka -->
+    <script src="/Pelit/peli1_aleksi/js/code.js"></script>
+
+    <!-- Pisteiden tallennus -->
+    <script src="../pisteiden_keräys/pelin1_localstore/tallenus.js"></script>
 </body>
 </html>

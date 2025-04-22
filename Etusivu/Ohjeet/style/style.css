@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.92); /* Läpinäkyvä valkoinen */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #444;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-note {
+    margin-top: 40px;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+}
+
+/* --- Uudet tyylit nappien ja dropdownin ulkoasuun --- */
+
+.nappi-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.valikko-nappi {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.valikko-nappi:hover {
+    background-color: #f0f0f0;
+}
+
+.valikko-nappi.active {
+    background-color: #f5f1d7;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 5px;
+    min-width: 160px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f1d7;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.valikko-nappi {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffdd00;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.valikko-nappi:hover {
+    background-color: #929292;
+}
+

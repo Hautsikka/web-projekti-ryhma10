@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=IM+Fell+English&display=swap');
+
+#etusivu,
+#peli-alue {
+    padding: 25px;
+    background: rgba(245, 245, 220, 0.95) url('../images/etusivu-tausta.jpg') center/cover;
+    border-radius: 28px;
+    margin: 25px auto;
+    max-width: 880px;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    border: 5px solid #8a4629;
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    font-size: 18px;
+}
+
+#etusivu:hover,
+#peli-alue:hover {
+    transform: scale(1.01);
+}
+
+
+button {
+    background: #5c4033;
+    color: #fdfbfb;
+    border: 3px solid #3A261B;
+    padding: 15px 25px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Uncial Antiqua', cursive;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background: #D3D3D3;
+    color: black;
+    transform: scale(1.08);
+}
+
+#aloita {
+    font-size: 24px;
+    padding: 20px 40px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #5c4033, #7a4f35);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s;
+}
+
+#aloita:hover {
+    background: #d3d3d3;
+    color: black;
+    transform: scale(1.1);
+}
+
+.yrita-uudelleen {
+    background: #ffb547;
+    border: 3px solid #000;
+    font-size: 20px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-family: 'Uncial Antiqua', cursive;
+}
+
+.yrita-uudelleen:hover {
+    background: #5c4033;
+    color: #fff;
+}
+
+#seuraava {
+    background: #e6bc35;
+    font-size: 20px;
+    padding: 15px 20px;
+    border-radius: 30px;
+    display: block;
+    margin: 10px auto;
+    width: fit-content;
+    font-family: 'Uncial Antiqua', cursive;
+}
+
+.vaihtoehdot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.vaihtoehto {
+    width: 100%;
+    max-width: 1000px;
+    padding: 12px 25px;
+    border-radius: 8px;
+    background: #FFF;
+    border: 3px solid #5C4033;
+    color: #5C4033;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.2s;
+    height: 60px;
+    font-family: 'IM Fell English', serif;
+}
+
+.vaihtoehto:hover {
+    background: #D3D3D3;
+    color: #000;
+    transform: scale(1.03);
+}
+
+.oikea {
+    background: lightgreen !important;
+    border-color: rgb(0, 104, 0) !important;
+    animation: oikeaPulssi 0.4s ease;
+}
+
+.vaarin {
+    background: lightcoral !important;
+    border-color: red !important;
+    animation: vaarinRavistaus 0.4s ease;
+}
+
+#tulokset {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(245, 245, 220, 0.95);
+    border: 5px solid #5C4033;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    z-index: 1000;
+    font-size: 25px;
+    font-family: 'IM Fell English', serif;
+}
+
+@keyframes oikeaPulssi {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes vaarinRavistaus {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}

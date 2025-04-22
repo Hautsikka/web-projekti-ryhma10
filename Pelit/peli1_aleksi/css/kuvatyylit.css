@@ -1,0 +1,29 @@
+#kirjakuva {
+    width: 70%;
+    max-width: 350px;
+    height: 350px;  
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid #5C4033;
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+#henkiloKuva {
+    width: 80%;
+    max-width: 350px;
+    height: 375px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 3px solid #5C4033;
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+#henkiloKuva:hover {
+    transform: scale(1.05);
+}

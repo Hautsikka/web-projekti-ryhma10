@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+  
   <div class="container">
     <h1>Pisteet kaikista peleistä</h1>
     <ul id="pisteLista"></ul>
@@ -39,9 +40,9 @@
       maksimipisteet += peli.max;
 
       const li = document.createElement("li");
-      li.textContent = `${peli.nimi}: ${pisteet} / ${peli.max}`;
+      li.innerHTML = `${peli.nimi}: <span class="pisteet">${pisteet} / ${peli.max}</span>`;
       lista.appendChild(li);
-    });
+ });
 
     document.getElementById("kokonaisPisteet").textContent = `Yhteensä: ${yhteispisteet} / ${maksimipisteet}`;
 

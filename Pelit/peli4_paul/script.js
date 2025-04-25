@@ -1,52 +1,51 @@
-// Kuvan valinta koodi sekä vaihtoehto koodi
 const questions = [
     {
-        image: ('images/WPQ 1.jpg'),
+        image: 'images/WPQ 1.jpg',
         options: ["Maailman ensimmäinen radio", "Maailman turvallisin kassakaappi", "Maailman ensimmäinen tietokone"],
         correct: "Maailman ensimmäinen tietokone"
     },
     {
-        image: ('images/WPQ 2.jpg'),
+        image: 'images/WPQ 2.jpg',
         options: ["Iwo Jiman taistelu", "USA liputus päivä", "Kukkulan valloitus"],
         correct: "Iwo Jiman taistelu"
     },
     {
-        image: ('images/WPQ 3.jpg'),
+        image: 'images/WPQ 3.jpg',
         options: ["Incheonin maihinnousu", "Normandian maihinnousu", "Gallipolin maihinnousu"],
         correct: "Normandian maihinnousu"
     },
     {
-        image: ('images/WPQ 4.jpg'),
+        image: 'images/WPQ 4.jpg',
         options: ["Ensimmäisen ilmalaivan tuho", "Zeppelinin sabotaasi", "Hindenburging onnettomuus"],
         correct: "Hindenburging onnettomuus"
     },
     {
-        image: ('images/WPQ 5.jpg'),
+        image: 'images/WPQ 5.jpg',
         options: ["Neuvostoliiton ensimmäinen kuu kävely", "Ensimmäinen miehitetty avaruusmatka", "Maailman ensimmäinen kuu kävely"],
         correct: "Maailman ensimmäinen kuu kävely"
     },
     {
-        image: ('images/WPQ 6.jpg'),
+        image: 'images/WPQ 6.jpg',
         options: ["Dachau", "Berliinin muuri", "Auschwitz"],
         correct: "Auschwitz"
     },
     {
-        image: ('images/WPQ 7.jpg'),
+        image: 'images/WPQ 7.jpg',
         options: ["Maailman ensimmäinen torpeedo", "Fat man ydinpommi", "Little boy ydinpommi"],
         correct: "Little boy ydinpommi"
     },
     {
-        image: ('images/WPQ 8.jpg'),
+        image: 'images/WPQ 8.jpg',
         options: ["Maailman ensimmäinen meri onnettomuus", "Francesco uppoaminen", "Titanicin uppoaminen"],
         correct: "Titanicin uppoaminen"
     },
     {
-        image: ('images/WPQ 9.jpg'),
+        image: 'images/WPQ 9.jpg',
         options: ["Maailman ensimmäinen tietokone", "Maailman ensimmäinen puhelin", "Maailman ensimmäinen radio"],
         correct: "Maailman ensimmäinen radio"
     },
     {
-        image: ('images/WPQ 10.jpg'),
+        image: 'images/WPQ 10.jpg',
         options: ["Einsteinin liidin", "Michelangelon taideteos", "Maailman ensimmäinen lentokone"],
         correct: "Maailman ensimmäinen lentokone"
     }
@@ -62,14 +61,15 @@ const resultScreen = document.getElementById("result-screen");
 const finalScoreEl = document.getElementById("final-score");
 const restartBtn = document.getElementById("restart-btn");
 const optionsContainer = document.getElementById("options");
-// Vastauksien järjestyksen randomisointi koodi
+
+// Randomisoi vastausvaihtoehdot
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
-// Kysymys koodi
+
+// Näytä kysymys ja vaihtoehdot
 function showQuestion() {
     const q = questions[currentIndex];
-
     imageEl.src = q.image;
     imageEl.style.display = "block";
     optionsContainer.style.display = "flex";
@@ -82,11 +82,12 @@ function showQuestion() {
         btn.onclick = () => handleAnswer(shuffled[i] === q.correct);
     });
 }
-// Oikeasta vastauksesta pisteen saamis koodi
+
+// Käsittele vastaukset
 function handleAnswer(isCorrect) {
     if (isCorrect) {
         score++;
-        scoreEl.textContent = score;
+        scoreEl.textContent = score;  // Päivitetään pisteet näyttöön heti
     }
 
     currentIndex++;
@@ -96,30 +97,28 @@ function handleAnswer(isCorrect) {
         showResult();
     }
 }
-// Loppu viesti koodi
+
+// Näytä tulokset pelin lopussa
 function showResult() {
     imageEl.style.display = "none";
-    document.getElementById("options").style.display = "none";
+    optionsContainer.style.display = "none";
     resultScreen.style.display = "block";
     
-    const finalMessageEl = document.getElementById("final-message");
-    const finalScoreEl = document.getElementById("final-score");
-    finalScoreEl.textContent = score;
+    finalScoreEl.textContent = score;  // Näyttää lopullisen pistemäärän.
 
+    const finalMessageEl = document.getElementById("final-message");
     finalMessageEl.classList.remove("result-low", "result-medium", "result-high");
 
     if (score < 3) {
         finalMessageEl.classList.add("result-low");
     } else if (score < 6) {
         finalMessageEl.classList.add("result-medium");
-    } else if (score > 7) {
+    } else if (score >= 6) {
         finalMessageEl.classList.add("result-high");
     }
 }
 
-
-
-// Uudelleen yrittämis koodi
+// Uudelleen aloitusnappulan käsittelijä
 restartBtn.onclick = () => {
     currentIndex = 0;
     score = 0;
@@ -136,7 +135,7 @@ restartBtn.onclick = () => {
     showQuestion();
 };
 
-// Aloitus ruutu koodi
+// Aloitusruutu
 const startScreen = document.getElementById("start-screen");
 const startBtn = document.getElementById("start-btn");
 
@@ -145,4 +144,14 @@ startBtn.addEventListener("click", () => {
     showQuestion();
 });
 
+initGame();
+
+// Peli loppuu, näyttää tuloksen ja tallentaa pisteet localStorageen
+function peliLoppu() {
+    naytaTulos(matchedPairs);  // Näytä peli loppu tulokset, käytä matchedPairs pistemääränä
+    peliAlue.style.display = "none";
+  
+    // Tallennetaan matchedPairs localStorageen
+    localStorage.setItem("peli4_paul", matchedPairs);
+}
 

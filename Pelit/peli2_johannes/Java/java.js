@@ -11,3 +11,6 @@ const events = {
   "Neuvostoliiton hyökkäys Suomeen": { year: 1941, image: "images/jatkosota.jpg" },
   "Toisen maailmansodan päättyminen Euroopassa": { year: 1945, image: "images/ve_day.jpg" }
 };
+
+
+

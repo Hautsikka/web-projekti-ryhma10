@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Pisteiden Yhteenveto</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pisteet kaikista peleistä</h1>
+    <ul id="pisteLista"></ul>
+    <h2 id="kokonaisPisteet">Yhteensä: 0 / 45</h2>
+
+    <!-- Tyhjennä pisteet -nappi -->
+    <button onclick="tyhjennäPisteet()">Tyhjennä pisteet</button>
+
+    <!-- Takaisin etusivulle -nappi -->
+    <a href="/ETUSIVU/index.html">
+      <button>Takaisin etusivulle</button>
+    </a>
+  </div>
+
+  <script>
+    const pelit = [
+      { nimi: "Peli 1 (Aleksi)", avain: "peli1_aleksi_pisteet", max: 10 },
+      { nimi: "Peli 2 (Johannes)", avain: "peli2_johannes_pisteet", max: 10 },
+      { nimi: "Peli 3 (Arttu H)", avain: "peli3_arttuH_pisteet", max: 5 },
+      { nimi: "Peli 4 (Paul)", avain: "peli4_paul_pisteet", max: 10 },
+      { nimi: "Peli 5 (Arttu R)", avain: "peli5_arttuR_pisteet", max: 10 }
+    ];
+
+    let yhteispisteet = 0;
+    let maksimipisteet = 0;
+    const lista = document.getElementById("pisteLista");
+
+    pelit.forEach(peli => {
+      const pisteet = parseInt(localStorage.getItem(peli.avain)) || 0;
+      yhteispisteet += pisteet;
+      maksimipisteet += peli.max;
+
+      const li = document.createElement("li");
+      li.textContent = `${peli.nimi}: ${pisteet} / ${peli.max}`;
+      lista.appendChild(li);
+    });
+
+    document.getElementById("kokonaisPisteet").textContent = `Yhteensä: ${yhteispisteet} / ${maksimipisteet}`;
+
+    function tyhjennäPisteet() {
+      pelit.forEach(peli => localStorage.removeItem(peli.avain));
+      location.reload(); // Päivitä sivu tyhjennyksen jälkeen
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historian Aikamatka - Peli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-screen">
+        <div class="start-content">
+            <h2>Tervetuloa kuvien arvauspeliin!</h2>
+            <p>Pelissä sinun tehtäväsi on arvailla, mikä vastauksista on oikea kuvan perusteella. Oikea vastaus on aina vain yksi. Jokaisesta oikeasta vastauksesta ansaitset yhden pisteen.</p>
+            <button id="start-btn">Aloita peli</button>
+        </div>
+    </div>    
+    
+    <header>
+        <h1>Historian Aikamatka</h1>
+        <div id="score-box">Pisteet: <span id="score">0</span></div>
+    </header>
+
+    <nav>
+        <a href="#pelit">Pelit</a>
+        <a href="#ohjeet">Ohjeet</a>
+        <a href="#pisteet">Pisteet</a>
+    </nav>
+
+    <main>
+        <div id="game-container">
+            <img id="question-image" src="" alt="Kysymyskuva">
+            <div id="options">
+                <button class="option-btn"></button>
+                <button class="option-btn"></button>
+                <button class="option-btn"></button>
+            </div>
+            <div id="result-screen" style="display: none;">
+                <p id="final-message">Sait <span id="final-score"></span>/10 pistettä!</p>
+                <button id="restart-btn">Yritä uudelleen</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script src="/Etusivu/pisteiden_keräys/pelin 4 localstore/tallennus.js"></script>
+    </main>
+
+    <footer>
+        <p>@ 2025 RR_Ryhmä 10</p>
+        <p>
+            <a href="#">All rights reserved</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </p>
+    </footer>
+
+</body>
+</html>

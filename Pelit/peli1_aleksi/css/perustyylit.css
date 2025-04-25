@@ -1,7 +1,7 @@
-/* Fonttien tuonti Google Fontsista: Playfair Display ja Lora */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap');
 
-/* Yleiset asetukset HTML- ja body-elementeille */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -16,25 +16,25 @@ html, body {
     background: url('../images/tausta.webp') center/cover no-repeat fixed;
 }
 
-/* Sivun pääkontti – sisältää kaiken sisällön */
+
 .wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Pääsisältöalue – vie kaiken jäljellä olevan tilan */
+
 main {
     flex: 1;
 }
 
-/* Yläpalkki (header), vaalea tausta */
+
 header {
     background: rgba(245, 245, 220, 0.9);
     padding: 10px 20px;
 }
 
-/* Yläpalkin rakenne ja asettelu */
+
 #ylapalkki {
     display: flex;
     justify-content: space-between;
@@ -45,7 +45,7 @@ header {
     position: relative;
 }
 
-/* Yläpalkin otsikko */
+
 #ylapalkki h1 {
     flex-basis: 100%;
     text-align: center;
@@ -54,14 +54,14 @@ header {
     color: #4B2E1E;
 }
 
-/* Navigointilistan kontti */
+
 .nav-container {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-/* Navigointilista ilman merkintätyylejä */
+
 .nav-container ul {
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +73,7 @@ header {
     font-family: 'Uncial Antiqua', cursive;
 }
 
-/* Navigointilinkit */
+
 .nav-container li a {
     text-decoration: none;
     color: #523510;
@@ -84,7 +84,7 @@ header {
     transition: background 0.2s, color 0.2s;
 }
 
-/* Linkin hover- ja fokus-tyyli */
+
 .nav-container li a:hover,
 .nav-container li a:focus {
     background: #D3D3D3;
@@ -92,7 +92,7 @@ header {
     outline: none;
 }
 
-/* Otsikot – yhtenäinen fontti ja tyyli */
+
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
@@ -101,7 +101,7 @@ h1, h2, h3 {
     padding: 10px;
 }
 
-/* Ykköstason otsikko erikseen: isompi ja kursivoitu */
+
 h1 {
     font-style: italic;
     font-size: 40px;
@@ -115,7 +115,7 @@ h1 {
 }
 
 
-/* Alapalkki eli footer */
+
 footer {
     background: rgba(245, 245, 220, 0.9);
     color: #5C4033;
@@ -125,7 +125,7 @@ footer {
     text-align: center;
 }
 
-/* Footerin linkit */
+
 footer a {
     color: inherit;
     text-decoration: none;
@@ -136,7 +136,7 @@ footer a:focus {
     text-decoration: underline;
 }
 
-/* Responsiivisuus – pienemmille näytöille (max 900px) */
+
 @media screen and (max-width: 900px) {
     #ylapalkki {
         flex-direction: column;

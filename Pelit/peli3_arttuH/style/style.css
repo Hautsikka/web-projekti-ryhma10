@@ -1,0 +1,72 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: #F5F5DC;
+    color: #000000;
+    padding: 10px 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Leikkisämpi fontti */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 150px); /* Isommat kortit */
+    grid-gap: 15px;
+    justify-content: center;
+    margin-top: 50px; /* Siirretty alemmas */
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card .front {
+    background: gray;
+}
+
+.card .back {
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center; /* Skaalataan oikein */
+    background-repeat: no-repeat;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Pistemäärän laatikko */
+#scoreBoard {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+    margin-top: 20px;
+}

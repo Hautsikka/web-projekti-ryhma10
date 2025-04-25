@@ -116,6 +116,11 @@ function showResult() {
     } else if (score >= 6) {
         finalMessageEl.classList.add("result-high");
     }
+
+    // Tallennetaan pistemäärä localStorageen
+    localStorage.setItem("peli4_paul", score);
+    // Voit tarkistaa pistemäärän konsolista seuraavasti:
+    console.log("Tallennettu pistemäärä: ", localStorage.getItem("peli4_paul"));
 }
 
 // Uudelleen aloitusnappulan käsittelijä
@@ -148,10 +153,6 @@ initGame();
 
 // Peli loppuu, näyttää tuloksen ja tallentaa pisteet localStorageen
 function peliLoppu() {
-    naytaTulos(matchedPairs);  // Näytä peli loppu tulokset, käytä matchedPairs pistemääränä
-    peliAlue.style.display = "none";
-  
-    // Tallennetaan matchedPairs localStorageen
-    localStorage.setItem("peli4_paul", matchedPairs);
+    showResult();  // Kutsutaan showResult, joka näyttää tulokset ja tallentaa pistemäärän
+    resultScreen.style.display = "block";  // Näytetään tulossivu
 }
-

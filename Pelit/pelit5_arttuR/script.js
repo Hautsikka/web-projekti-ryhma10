@@ -19,10 +19,12 @@ const answersEl = document.getElementById("answers");
 const nextBtn = document.getElementById("next-btn");
 const resultEl = document.getElementById("result");
 
+// Funktio, joka näyttää kysymyksen ja vaihtoehdot
 function showQuestion() {
     const q = questions[currentQuestionIndex];
     questionEl.textContent = q.question;
     answersEl.innerHTML = "";
+    
     q.answers.forEach((answer, index) => {
         const button = document.createElement("button");
         button.textContent = answer;
@@ -31,11 +33,16 @@ function showQuestion() {
     });
 }
 
+// Funktio tarkistamaan, onko valittu vastaus oikea
 function checkAnswer(selectedIndex) {
+    // Jos vastaus on oikea, kasvatetaan pistemäärää
     if (selectedIndex === questions[currentQuestionIndex].correct) {
         score++;
     }
+    
+    // Siirrytään seuraavaan kysymykseen
     currentQuestionIndex++;
+    
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
@@ -43,12 +50,28 @@ function checkAnswer(selectedIndex) {
     }
 }
 
+// Funktio, joka näyttää tulokset pelin lopussa
 function showResult() {
     questionEl.classList.add("hidden");
     answersEl.classList.add("hidden");
     nextBtn.classList.add("hidden");
     resultEl.classList.remove("hidden");
     resultEl.textContent = `Peli päättyi! Sait ${score}/${questions.length} pistettä.`;
+    
+    // Tallennetaan pistemäärä localStorageen
+    localStorage.setItem("peli5_arttuR", score);
+    // Voit tarkistaa pistemäärän konsolista:
+    console.log("Tallennettu pistemäärä: ", localStorage.getItem("peli5_arttuR"));
 }
 
+// Näytetään ensimmäinen kysymys pelin alussa
 showQuestion();
+
+// Uudelleen aloitusnappulan käsittelijä (voit lisätä sen HTML:ään)
+nextBtn.onclick = () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    showQuestion();
+    resultEl.classList.add("hidden");
+    nextBtn.classList.remove("hidden");
+};

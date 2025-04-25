@@ -213,3 +213,21 @@ button:disabled {
     }
  
 }
+.button-link {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    padding: 20px 10px;
+    background-color: #D3D3D3;
+    color: #5C4033;
+    text-decoration: none;
+    border: 1px solid #D3D3D3;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+

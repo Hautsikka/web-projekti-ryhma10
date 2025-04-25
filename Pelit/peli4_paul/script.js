@@ -145,14 +145,4 @@ startBtn.addEventListener("click", () => {
     showQuestion();
 });
 
-initGame();
-
-// Peli loppuu, näyttää tuloksen ja tallentaa pisteet localStorageen
-function peliLoppu() {
-    naytaTulos(matchedPairs);  // Näytä peli loppu tulokset, käytä matchedPairs pistemääränä
-    peliAlue.style.display = "none";
-  
-    // Tallennetaan matchedPairs localStorageen
-    localStorage.setItem("peli4_paul", matchedPairs);
-}
 

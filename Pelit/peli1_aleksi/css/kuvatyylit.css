@@ -1,3 +1,4 @@
+/* Kirjakuvan ulkoasu */
 #kirjakuva {
     width: 70%;
     max-width: 350px;
@@ -11,6 +12,7 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* Henkilökuvan ulkoasu */
 #henkiloKuva {
     width: 80%;
     max-width: 350px;
@@ -24,6 +26,7 @@
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+/* Henkilökuva suurenee hoverilla */
 #henkiloKuva:hover {
     transform: scale(1.05);
 }

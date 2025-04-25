@@ -1,19 +1,23 @@
-// Haetaan pelin nimi HTML:n body-elementistä
-const pelinNimi = document.body.dataset.pelinNimi;
+const pelit = [
+  "peli1_aleksi_pisteet",
+  "peli2_johannes_pisteet",
+  "peli3_arttuH_pisteet",
+  "peli4_paul_pisteet",
+  "peli5_arttuR_pisteet"
+];
 
-// Simuloidaan pisteiden laskua (korvaa omalla logiikalla)
-function laskePisteet() {
-  // Tässä olisi sun oma logiikka, esim. laskurit, vastaukset jne.
-  // Esimerkki: satunnainen testipiste
-  return Math.floor(Math.random() * 10) + 1;
-}
+const pisteLista = document.getElementById("pisteLista");
+const kokonaisPisteetEl = document.getElementById("kokonaisPisteet");
 
-// Pisteiden tallennus
-function tallennaPisteet() {
-  const pisteet = laskePisteet();
-  localStorage.setItem(`${pelinNimi}_pisteet`, pisteet);
-  alert(`Pisteet tallennettu: ${pisteet}`);
-}
+let yhteensa = 0;
 
-// Kutsu tätä pelin lopussa, esim. kun käyttäjä klikkaa "Lopeta peli"
-tallennaPisteet();
+pelit.forEach((avain, index) => {
+  const pisteet = parseInt(localStorage.getItem(avain)) || 0;
+  yhteensa += pisteet;
+
+  const li = document.createElement("li");
+  li.textContent = `Peli ${index + 1}: ${pisteet} pistettä`;
+  pisteLista.appendChild(li);
+});
+
+kokonaisPisteetEl.textContent = `Yhteensä: ${yhteensa} / 50`;

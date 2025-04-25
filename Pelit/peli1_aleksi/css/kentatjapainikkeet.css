@@ -1,5 +1,7 @@
+/* Fonttien tuonti */
 @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=IM+Fell+English&display=swap');
 
+/* Etusivun ja peli-alueen ulkoasu */
 #etusivu,
 #peli-alue {
     padding: 25px;
@@ -14,12 +16,13 @@
     font-size: 18px;
 }
 
+/* Kevyt hover-efekti */
 #etusivu:hover,
 #peli-alue:hover {
     transform: scale(1.01);
 }
 
-
+/* Yleinen nappityyli */
 button {
     background: #5c4033;
     color: #fdfbfb;
@@ -37,12 +40,14 @@ button {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover-napille */
 button:hover {
     background: #D3D3D3;
     color: black;
     transform: scale(1.08);
 }
 
+/* Korostettu aloitusnappi */
 #aloita {
     font-size: 24px;
     padding: 20px 40px;
@@ -58,6 +63,7 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Uudelleenyritysnappi */
 .yrita-uudelleen {
     background: #ffb547;
     border: 3px solid #000;
@@ -72,6 +78,7 @@ button:hover {
     color: #fff;
 }
 
+/* Seuraava-nappi */
 #seuraava {
     background: #e6bc35;
     font-size: 20px;
@@ -83,6 +90,7 @@ button:hover {
     font-family: 'Uncial Antiqua', cursive;
 }
 
+/* Vaihtoehtojen asettelu */
 .vaihtoehdot-container {
     display: flex;
     flex-direction: column;
@@ -93,6 +101,7 @@ button:hover {
     margin: 0 auto;
 }
 
+/* Yksittäinen vastausvaihtoehto */
 .vaihtoehto {
     width: 100%;
     max-width: 1000px;
@@ -116,6 +125,7 @@ button:hover {
     transform: scale(1.03);
 }
 
+/* Oikea ja väärä vastaus */
 .oikea {
     background: lightgreen !important;
     border-color: rgb(0, 104, 0) !important;
@@ -128,6 +138,7 @@ button:hover {
     animation: vaarinRavistaus 0.4s ease;
 }
 
+/* Tulokset-popup */
 #tulokset {
     display: none;
     position: fixed;
@@ -147,6 +158,7 @@ button:hover {
     font-family: 'IM Fell English', serif;
 }
 
+/* Animaatiot oikealle ja väärälle vastaukselle */
 @keyframes oikeaPulssi {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }

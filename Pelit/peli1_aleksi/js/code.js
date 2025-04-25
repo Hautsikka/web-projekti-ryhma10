@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Kysymysdata: kuva, kysymysteksti, vastausvaihtoehdot ja oikea vastaus
     const kysymykset = [
         { kuva: "../peli1_aleksi/images/kekkonen.jpg", kysymys: "Kalju presidentti silmälaseilla.", vaihtoehdot: ["Urho Kekkonen", "Mauno Koivisto", "Risto Ryti"], oikea: "Urho Kekkonen" },
         { kuva: "../peli1_aleksi/images/hitler.jpg", kysymys: "Saksan johtaja sodan aikana.", vaihtoehdot: ["Adolf Hitler", "Benito Mussolini", "Joseph Stalin"], oikea: "Adolf Hitler" },
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let nykyinenKysymys = 0;
     let pisteet = 0;
 
+    // Haetaan tarvittavat DOM-elementit
     const henkiloKuva = document.getElementById("henkiloKuva");
     const kysymysTeksti = document.getElementById("kysymysteksti");
     const vaihtoehdotDiv = document.getElementById("vaihtoehdot");
@@ -24,10 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const pisteetNaytto = document.getElementById("pisteet");
     const etusivu = document.getElementById("etusivu");
 
+    // Näytetään kysymys ja siihen liittyvät vaihtoehdot
     function naytaKysymys() {
-        if (nykyinenKysymys >= kysymykset.length) {
-            return peliLoppu();
-        }
+        if (nykyinenKysymys >= kysymykset.length) return peliLoppu();
 
         const kysymys = kysymykset[nykyinenKysymys];
 
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         kysymysTeksti.innerText = kysymys.kysymys;
         vaihtoehdotDiv.innerHTML = "";
 
+        // Sekoitetaan vastausvaihtoehdot ja luodaan napit
         kysymys.vaihtoehdot.sort(() => Math.random() - 0.5).forEach(vaihtoehto => {
             const nappi = document.createElement("button");
             nappi.innerText = vaihtoehto;
@@ -46,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         seuraavaNappi.style.display = "none";
     }
 
+    // Tarkistetaan vastaus ja näytetään oikea/väärin
     function tarkistaVastaus(nappi, valittu, oikeaVastaus) {
         document.querySelectorAll(".vaihtoehtoNappi").forEach(n => n.disabled = true);
 
@@ -55,15 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             nappi.classList.add("vaarin");
             document.querySelectorAll(".vaihtoehtoNappi").forEach(n => {
-                if (n.innerText === oikeaVastaus) {
-                    n.classList.add("oikea");
-                }
+                if (n.innerText === oikeaVastaus) n.classList.add("oikea");
             });
         }
 
         seuraavaNappi.style.display = "block";
     }
 
+    // Näytetään lopputulos viestillä
     function naytaTulos(pisteet) {
         let viesti = "";
         if (pisteet === 10) viesti = "Täydellinen suoritus!";
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.add("popup-open");
     }
 
+    // Aloitetaan peli
     function aloitaPeli() {
         pisteet = 0;
         nykyinenKysymys = 0;
@@ -85,26 +88,25 @@ document.addEventListener("DOMContentLoaded", function () {
         naytaKysymys();
     }
 
+    // Siirrytään seuraavaan kysymykseen
     function seuraavaKysymys() {
         nykyinenKysymys++;
         naytaKysymys();
     }
 
+    // Peli loppuu ja pisteet tallennetaan
     function peliLoppu() {
         naytaTulos(pisteet);
         peliAlue.style.display = "none";
-    
-        // Tallennetaan pisteet localStorageen
         localStorage.setItem("peli1_aleksi", pisteet);
     }
-    
-    
-    
 
+    // Tapahtumakuuntelijat
     document.getElementById("aloita").addEventListener("click", aloitaPeli);
     document.getElementById("uudestaan").addEventListener("click", aloitaPeli);
     seuraavaNappi.addEventListener("click", seuraavaKysymys);
 
+    // Mahdollistaa Enter-näppäimen käytön siirtymiseen
     document.addEventListener("keydown", function (e) {
         if (e.key === "Enter" && seuraavaNappi.style.display === "block") {
             seuraavaKysymys();

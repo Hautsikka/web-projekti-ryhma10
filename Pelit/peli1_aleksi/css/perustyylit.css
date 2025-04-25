@@ -1,7 +1,7 @@
-
+/* Fonttien tuonti */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap');
 
-
+/* Perustyyli koko sivulle */
 html, body {
     height: 100%;
     margin: 0;
@@ -16,25 +16,24 @@ html, body {
     background: url('../images/tausta.webp') center/cover no-repeat fixed;
 }
 
-
+/* Sivun rakenne */
 .wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-
 main {
     flex: 1;
 }
 
-
+/* Ylätunnisteen tausta ja padding */
 header {
     background: rgba(245, 245, 220, 0.9);
     padding: 10px 20px;
 }
 
-
+/* Yläpalkin rakenne ja asettelu */
 #ylapalkki {
     display: flex;
     justify-content: space-between;
@@ -45,7 +44,7 @@ header {
     position: relative;
 }
 
-
+/* Sivun otsikko */
 #ylapalkki h1 {
     flex-basis: 100%;
     text-align: center;
@@ -54,14 +53,14 @@ header {
     color: #4B2E1E;
 }
 
-
+/* Navigaatiolista keskitetysti */
 .nav-container {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-
+/* Navigaation ulkoasu */
 .nav-container ul {
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +72,7 @@ header {
     font-family: 'Uncial Antiqua', cursive;
 }
 
-
+/* Linkkien tyyli */
 .nav-container li a {
     text-decoration: none;
     color: #523510;
@@ -84,7 +83,7 @@ header {
     transition: background 0.2s, color 0.2s;
 }
 
-
+/* Linkkien hover-efekti */
 .nav-container li a:hover,
 .nav-container li a:focus {
     background: #D3D3D3;
@@ -92,7 +91,7 @@ header {
     outline: none;
 }
 
-
+/* Otsikoiden tyyli */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
@@ -101,12 +100,12 @@ h1, h2, h3 {
     padding: 10px;
 }
 
-
 h1 {
     font-style: italic;
     font-size: 40px;
 }
 
+/* Kysymystekstin korostus */
 #kysymysteksti {
     font-size: 20px;
     font-family: 'Uncial Antiqua', cursive;
@@ -114,8 +113,7 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-
-
+/* Alatunnisteen ulkoasu */
 footer {
     background: rgba(245, 245, 220, 0.9);
     color: #5C4033;
@@ -125,7 +123,7 @@ footer {
     text-align: center;
 }
 
-
+/* Linkit alatunnisteessa */
 footer a {
     color: inherit;
     text-decoration: none;
@@ -136,7 +134,7 @@ footer a:focus {
     text-decoration: underline;
 }
 
-
+/* Responsiivisuus pienemmille näytöille */
 @media screen and (max-width: 900px) {
     #ylapalkki {
         flex-direction: column;

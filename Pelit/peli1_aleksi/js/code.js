@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         naytaTulos(pisteet);
         peliAlue.style.display = "none";
     }
+    
 
     document.getElementById("aloita").addEventListener("click", aloitaPeli);
     document.getElementById("uudestaan").addEventListener("click", aloitaPeli);

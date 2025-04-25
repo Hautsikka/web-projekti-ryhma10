@@ -12,24 +12,29 @@
             "Normandian maihinnousu": { year: 1944, image: "images/maihinnousu.jpg" },
             "Hiroshiman atomipommi": { year: 1945, image: "images/hiroshima.jpg" },
             "Saksan antautuminen": { year: 1945, image: "images/saksan_antautuminen.jpg" },
-            "Barbarossa-suunnitelma": { year: 1941, image: "images/barbarossa.jpg" }
+            "Barbarossa-suunnitelma": { year: 1941, image: "images/barbarossa.jpg" },
+            "Stalingradin taistelun päättyminen": { year: 1943, image: "images/stalingrad.jpg" },
+            "Yhdistyneiden kansakuntien perustaminen": { year: 1945, image: "images/un.jpg" },
+            "Hitlerin kuolema": { year: 1945, image: "images/hitler.jpg" },
+            "Neuvostoliiton hyökkäys Suomeen": { year: 1941, image: "images/jatkosota.jpg" },
+            "Toisen maailmansodan päättyminen Euroopassa": { year: 1945, image: "images/ve_day.jpg" }
         };
 
-        let eventKeys = Object.keys(events);
         let score = 0;
         let questionCount = 0;
         let maxQuestions = 5;
         let currentEvent = "";
         let currentYear = 0;
+        let remainingEvents = [];
 
         function updateScore() {
             document.getElementById("score").innerText = "Pisteet: " + score;
         }
 
         function nextQuestion() {
-            if (questionCount < maxQuestions) {
-                let randomIndex = Math.floor(Math.random() * eventKeys.length);
-                currentEvent = eventKeys[randomIndex];
+            if (questionCount < maxQuestions && remainingEvents.length > 0) {
+                let randomIndex = Math.floor(Math.random() * remainingEvents.length);
+                currentEvent = remainingEvents[randomIndex];
                 currentYear = events[currentEvent].year;
                 let currentImage = events[currentEvent].image;
                 document.getElementById("event").innerText = "Milloin tapahtui: " + currentEvent + "?";
@@ -37,6 +42,7 @@
                 document.getElementById("year").value = "";
                 document.getElementById("result").innerText = "";
                 document.getElementById("next").disabled = true;
+                remainingEvents.splice(randomIndex, 1);
                 questionCount++;
             } else {
                 document.getElementById("event").innerText = "Peli päättyi! Pisteet: " + score + "/" + maxQuestions;
@@ -62,7 +68,27 @@
         function startGame() {
             document.getElementById("intro").style.display = "none";
             document.getElementById("game").style.display = "block";
+            score = 0;
+            questionCount = 0;
+            remainingEvents = Object.keys(events);
+            document.getElementById("score").textContent = "Pisteet: 0";
+            document.getElementById("year").style.display = "inline";
+            document.getElementById("next").style.display = "inline";
             nextQuestion();
+        }
+
+        function restartGame() {
+            score = 0;
+            questionCount = 0;
+            remainingEvents = Object.keys(events);
+            document.getElementById("score").textContent = "Pisteet: 0";
+            document.getElementById("result").textContent = "";
+            document.getElementById("year").value = "";
+            document.getElementById("year").style.display = "inline";
+            document.getElementById("next").style.display = "inline";
+            nextQuestion();
+            document.getElementById("next").disabled = true;
+            document.getElementById("game").style.display = "block";
         }
 
         window.onload = function() {
@@ -90,6 +116,7 @@
             <p id="result"></p>
             <button onclick="nextQuestion()" id="next" disabled>Seuraava</button>
             <p id="score">Pisteet: 0</p>
+            <button onclick="restartGame()">Aloita alusta</button>
         </div>
     </div>
 

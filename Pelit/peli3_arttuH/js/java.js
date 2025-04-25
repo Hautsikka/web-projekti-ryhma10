@@ -63,3 +63,11 @@ function initGame() {
 }
 
 initGame();
+
+function peliLoppu() {
+    naytaTulos(pisteet);
+    peliAlue.style.display = "none";
+  
+    // Tallennetaan pisteet localStorageen
+    localStorage.setItem("peli3_arttuH", pisteet);
+  }

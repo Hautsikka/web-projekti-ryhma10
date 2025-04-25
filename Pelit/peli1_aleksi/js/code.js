@@ -93,7 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function peliLoppu() {
         naytaTulos(pisteet);
         peliAlue.style.display = "none";
+    
+        // Tallennetaan pisteet localStorageen
+        localStorage.setItem("peli1_aleksi", pisteet);
     }
+    
     
 
     document.getElementById("aloita").addEventListener("click", aloitaPeli);

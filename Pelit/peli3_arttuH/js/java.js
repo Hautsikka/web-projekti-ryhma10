@@ -48,6 +48,7 @@ function checkMatch() {
         if (matchedPairs === images.length) {
             scoreBoard.textContent = `Peli päättyi, sait ${matchedPairs}/${images.length} pistettä`;
             scoreBoard.style.display = "block";
+            peliLoppu(); // Kutsu peliLoppu-funktiota pelin päättyessä
         }
     } else {
         flippedCards.forEach(card => card.classList.remove("flipped"));
@@ -62,12 +63,11 @@ function initGame() {
     cards.forEach(image => gameBoard.appendChild(createCard(image)));
 }
 
-initGame();
-
 function peliLoppu() {
-    naytaTulos(pisteet);
-    peliAlue.style.display = "none";
-  
-    // Tallennetaan pisteet localStorageen
-    localStorage.setItem("peli3_arttuH", pisteet);
-  }
+    let pisteet = matchedPairs;  // Asetetaan pisteet matchedPairs-muuttujan mukaan
+    localStorage.setItem("peli3_arttuH", pisteet);  // Tallennetaan pistemäärä localStorageen
+    scoreBoard.textContent = `Peli päättyi! Sait ${pisteet} pistettä.`;
+    scoreBoard.style.display = "block"; // Näytä pistelaatikko
+}
+
+initGame();

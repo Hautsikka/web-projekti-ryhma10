@@ -12,15 +12,33 @@ let maksimipisteet = 0;
 const lista = document.getElementById("pisteLista");
 
 // Haetaan pisteet localStoragesta ja näytetään ne
-pelit.forEach(peli => {
-  const pisteet = parseInt(localStorage.getItem(peli.avain)) || 0;
-  yhteispisteet += pisteet;
-  maksimipisteet += peli.max;
+function paivitaPisteet() {
+  lista.innerHTML = '';  // Tyhjennetään lista ennen päivitystä
+  yhteispisteet = 0; // Nollataan yhteispisteet
+  maksimipisteet = 0; // Nollataan maksimipisteet
 
-  const li = document.createElement("li");
-  li.innerHTML = `${peli.nimi}: <span class="pisteet">${pisteet} / ${peli.max}</span>`;
-  lista.appendChild(li);
-});
+  pelit.forEach(peli => {
+    const pisteet = parseInt(localStorage.getItem(peli.avain)) || 0;
+    yhteispisteet += pisteet;
+    maksimipisteet += peli.max;
 
-// Näytetään yhteispisteet
-document.getElementById("kokonaisPisteet").textContent = `Yhteensä: ${yhteispisteet} / ${maksimipisteet}`;
+    const li = document.createElement("li");
+    li.innerHTML = `${peli.nimi}: <span class="pisteet">${pisteet} / ${peli.max}</span>`;
+    lista.appendChild(li);
+  });
+
+  // Näytetään yhteispisteet
+  document.getElementById("kokonaisPisteet").textContent = `Yhteensä: ${yhteispisteet} / ${maksimipisteet}`;
+}
+
+// Tyhjennä pisteet -funktio
+function tyhjennäPisteet() {
+  pelit.forEach(peli => {
+    localStorage.removeItem(peli.avain); // Poistetaan pelin pisteet localStoragesta
+  });
+
+  paivitaPisteet(); // Päivitetään pisteet näkyville
+}
+
+// Alustetaan ja näytetään pisteet heti sivun latautuessa
+paivitaPisteet();

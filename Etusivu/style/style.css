@@ -1,0 +1,144 @@
+body {
+    background-image: url('../Images/historia.jpg'); /* Tarkista polku */
+    background-size: cover; /* Venytä kuva koko näytön leveydelle */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Estää kuvan skrollaamisen */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 245, 220, 0.5); /* Läpinäkyvämpi header */
+    padding: 10px; /* Pienennetty padding, tuo elementit lähemmäksi */
+    position: relative;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Kasvatettu nappien väliä */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    padding: 8px 12px; /* Varmistaa, että napit pysyvät samankorkuisina */
+    border-radius: 5px;
+    background-color: #f5f5dc; /* Selkeämpi taustaväri */
+    transition: background-color 0.3s;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Leikkisämpi fontti */
+}
+
+nav ul li a:hover {
+    background-color: yellow; /* Vaihtaa värin keltaiseksi */
+}
+
+    
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(245, 245, 220, 0.8);
+    text-align: center;
+    padding: 10px;
+}
+
+/* Satunnainen historian faktan laatikko */
+.factBox {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px; /* Lisää tilaa tekstille */
+    background-color: #f5f5dc;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    max-width: 300px; /* Rajaa laatikon leveyttä */
+    min-height: 100px; /* Määritä vähimmäiskorkeus */
+    height: auto; /* Anna korkeuden kasvaa tekstin mukaan */
+    line-height: 1.5em; /* Tekstien riviväli, joka estää päällekkäisyyksiä */
+    overflow-y: auto; /* Sallii skrollauksen, jos teksti menee laatikon ulkopuolelle */
+    white-space: normal; /* Sallii tekstin jakautuvan usealle riville */
+    word-wrap: break-word; /* Varmistaa, että pitkät sanat menevät seuraavalle riville */
+}
+
+/* Dropdown-muotoilu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #f5f5dc;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.dropbtn:hover {
+    background-color: yellow;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f5f5dc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: yellow;
+}
+
+/* Näyttää dropdown-valikon, kun käyttäjä vie hiiren napin päälle */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+

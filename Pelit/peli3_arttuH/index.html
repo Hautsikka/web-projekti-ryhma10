@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muistipeli</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/navigate.css">
+</head>
+<body data-pelin-nimi="peli3_arttuH">
+    <header>
+        <h1>Muistipeli</h1>
+    </header>
+    <nav class="nav-container">
+        <a href="/Etusivu/index.html" class="valikko-nappi">Takaisin etusivulle</a>
+    </nav>
+    <main>
+        <div class="game-board" id="gameBoard"></div>
+        <div id="scoreBoard" class="hidden"></div> <!-- Pisteiden näyttö -->
+    </main>
+    <footer>
+        <p>&copy; 2025 RR_Ryhmä 10</p>
+    </footer>
+
+    <!-- Pelin logiikka -->
+    <script src="js/java.js"></script>
+
+    <!-- Pisteiden tallennus -->
+    <script src="/Etusivu/pisteiden_keräys/pelin 3 localstore/tallennus.js"></script>
+</body>
+</html>

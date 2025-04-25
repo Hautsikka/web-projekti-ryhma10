@@ -1,5 +1,12 @@
-// Tallennetaan localStorageen avaimella peli1_aleksi_pisteet
-localStorage.setItem("peli1_aleksi_pisteet", 10);
+let pisteet = 0;
 
-// (Valinnainen) Konsoli-ilmoitus
-console.log("Pisteet tallennettu: 10");
+// Pelaaja vastaa oikein
+function pelaajaVastasiOikein() {
+    pisteet += 1;
+}
+
+// Peli päättyy
+function peliLoppui() {
+    localStorage.setItem("peli1_aleksi_pisteet", pisteet);
+    console.log("Pisteet tallennettu: " + pisteet);
+}

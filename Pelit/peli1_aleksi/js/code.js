@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     
+    
 
     document.getElementById("aloita").addEventListener("click", aloitaPeli);
     document.getElementById("uudestaan").addEventListener("click", aloitaPeli);

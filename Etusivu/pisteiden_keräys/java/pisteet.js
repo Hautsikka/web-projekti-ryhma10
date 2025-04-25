@@ -1,23 +1,26 @@
+// Pelien tiedot
 const pelit = [
-  "peli1_aleksi_pisteet",
-  "peli2_johannes_pisteet",
-  "peli3_arttuH_pisteet",
-  "peli4_paul_pisteet",
-  "peli5_arttuR_pisteet"
+  { nimi: "Peli 1 (Aleksi)", avain: "peli1_aleksi", max: 10 },
+  { nimi: "Peli 2 (Johannes)", avain: "peli2_johannes", max: 10 },
+  { nimi: "Peli 3 (Arttu H)", avain: "peli3_arttuH", max: 5 },
+  { nimi: "Peli 4 (Paul)", avain: "peli4_paul", max: 10 },
+  { nimi: "Peli 5 (Arttu R)", avain: "peli5_arttuR", max: 10 }
 ];
 
-const pisteLista = document.getElementById("pisteLista");
-const kokonaisPisteetEl = document.getElementById("kokonaisPisteet");
+let yhteispisteet = 0;
+let maksimipisteet = 0;
+const lista = document.getElementById("pisteLista");
 
-let yhteensa = 0;
-
-pelit.forEach((avain, index) => {
-  const pisteet = parseInt(localStorage.getItem(avain)) || 0;
-  yhteensa += pisteet;
+// Haetaan pisteet localStoragesta ja näytetään ne
+pelit.forEach(peli => {
+  const pisteet = parseInt(localStorage.getItem(peli.avain)) || 0;
+  yhteispisteet += pisteet;
+  maksimipisteet += peli.max;
 
   const li = document.createElement("li");
-  li.textContent = `Peli ${index + 1}: ${pisteet} pistettä`;
-  pisteLista.appendChild(li);
+  li.innerHTML = `${peli.nimi}: <span class="pisteet">${pisteet} / ${peli.max}</span>`;
+  lista.appendChild(li);
 });
 
-kokonaisPisteetEl.textContent = `Yhteensä: ${yhteensa} / 50`;
+// Näytetään yhteispisteet
+document.getElementById("kokonaisPisteet").textContent = `Yhteensä: ${yhteispisteet} / ${maksimipisteet}`;
